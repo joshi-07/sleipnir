@@ -487,9 +487,9 @@ fn round_coord(pt: f64, precision: usize) -> String {
 
 #[cfg(test)]
 mod tests {
-    use kurbo::{BezPath, PathEl, Point};
+    use kurbo::{BezPath, Point};
 
-    use crate::pathstyle::{DrawingCommandType, PathWithPosIter, SvgPathStyle, ToSvgCoord};
+    use crate::pathstyle::{DrawingCommandType, SvgPathStyle, ToSvgCoord};
 
     #[test]
     fn coord_string_svg() {
@@ -582,7 +582,7 @@ mod tests {
         );
         assert_eq!(
             SvgPathStyle::Compact(2).write_svg_path(&path),
-            "M-10-10l5,5h-6c-4,-2 3,-3 1,-5Z"
+            "M-10-10l5,5h-6c-4-2 3-3 1-5Z"
         );
     }
 
@@ -677,6 +677,4 @@ mod tests {
         assert_eq!("1.21", super::round_coord(1.205, 2));
         assert_eq!("1.21", super::round_coord(1.207, 2));
     }
-
-
 }
